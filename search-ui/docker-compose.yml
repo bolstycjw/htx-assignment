@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  search-ui:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: ".env"
+    networks:
+      - elastic-network
+
+networks:
+  elastic-network:
+    external: true 

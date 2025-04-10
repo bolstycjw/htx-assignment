@@ -1,0 +1,37 @@
+# Elasticsearch configuration
+
+network:
+  host: 0.0.0.0
+
+# Cluster settings
+cluster:
+  name: cv-transcriptions-cluster
+  initial_master_nodes: ["es01"]
+
+# # Discovery settings
+discovery:
+  seed_hosts: ["es01", "es02"]
+
+# Security settings
+xpack:
+  security:
+    enabled: false
+
+# CORS settings
+http:
+  port: 9200
+  cors:
+    enabled: true
+    allow-origin: "*"
+    allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE
+    allow-headers: X-Requested-With, X-Auth-Token, Content-Type, Content-Length, Authorization, Access-Control-Allow-Headers, Accept, x-elastic-client-meta
+    allow-credentials: true
+
+# Path settings
+path:
+  data: /usr/share/elasticsearch/data
+  logs: /usr/share/elasticsearch/logs
+
+# Performance settings
+bootstrap:
+  memory_lock: true

@@ -1,0 +1,24 @@
+# AWS Region for the deployment
+aws_region = "us-east-1"
+
+# VPC and subnet CIDR blocks
+vpc_cidr = "10.0.0.0/16"
+public_subnet_cidr = "10.0.1.0/24"
+
+# Security - Replace with your IP address for secure SSH access
+ssh_allowed_ips = ["0.0.0.0/0"]  # IMPORTANT: Replace with your IP, e.g. ["123.456.789.101/32"]
+kibana_allowed_ips = ["0.0.0.0/0"]  # IMPORTANT: Restrict to specific IPs in production
+
+# EC2 instance configuration
+instance_type = "t2.micro"  # Free tier eligible
+key_name = "your-key-pair-name"  # IMPORTANT: Replace with your key pair name
+
+# Storage configuration
+elastic_ebs_size = 16  # Size in GB, within free tier limit
+
+# Elasticsearch configuration
+elasticsearch_version = "8.17.4"
+elasticsearch_heap_size = 512  # In MB, optimized for t2.micro
+
+# ASR API configuration
+asr_memory_limit = 900  # In MB, optimized for t2.micro 

@@ -1,0 +1,34 @@
+{
+  "name": "search-ui",
+  "version": "1.0.0",
+  "description": "Search UI for Common Voice transcriptions",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@elastic/react-search-ui": "^1.22",
+    "@elastic/react-search-ui-views": "^1.22",
+    "@elastic/search-ui": "^1.22",
+    "@elastic/search-ui-app-search-connector": "^1.22",
+    "@elastic/search-ui-elasticsearch-connector": "^1.22",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

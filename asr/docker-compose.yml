@@ -1,0 +1,7 @@
+services:
+  asr-api:
+    build:
+      context: .
+    ports:
+      - 8001:8001
+    restart: always

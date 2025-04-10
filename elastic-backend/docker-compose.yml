@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.4
+    container_name: es01
+    environment:
+      - node.name=es01
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - elasticsearch-data-01:/usr/share/elasticsearch/data
+      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ports:
+      - 9200:9200
+    networks:
+      - elastic-network
+
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.4
+    container_name: es02
+    environment:
+      - node.name=es02
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - elasticsearch-data-02:/usr/share/elasticsearch/data
+      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      - elastic-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.17.4
+    container_name: kibana
+    ports:
+      - 5601:5601
+    volumes:
+      - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - elastic-network
+    depends_on:
+      - es01
+      - es02
+
+volumes:
+  elasticsearch-data-01:
+    driver: local
+  elasticsearch-data-02:
+    driver: local
+
+networks:
+  elastic-network:
+    name: elastic-network
+    driver: bridge 
